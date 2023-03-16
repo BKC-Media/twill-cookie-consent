@@ -8,11 +8,12 @@ use A17\Twill\Models\Model;
 class Cookie extends Model 
 {
     use HasBlocks;
-
     protected $fillable = [
         'published',
         'title',
-        'description',
+        'cookie_banner_description',
+        'settings_title',
+        'settings_description',
     ];
     
 }

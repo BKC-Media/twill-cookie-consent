@@ -20,9 +20,8 @@ class CookieSeeder extends Seeder
         }
 
         app(CookieRepository::class)->create([
-            'title' => 'Cookie',
-            'description' => '',
-            'published' => false,
+            'title' => 'Cookie consent',
+            'published' => true,
         ]);
     }
 }
