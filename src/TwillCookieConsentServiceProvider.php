@@ -1,6 +1,6 @@
 <?php
 
-namespace TwillCookieConsent;
+namespace BKCmedia\TwillCookieConsent;
 
 use A17\Twill\TwillPackageServiceProvider;
 
