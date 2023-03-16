@@ -1,0 +1,32 @@
+{
+  "name": "bkc-media/twill-cookie-consent",
+  "description": "A twill package",
+  "homepage": "https://github.com/bkc-media/twill-cookie-consent",
+  "license": "MIT",
+  "authors": [
+     {
+        "name": "Jeffrey Sevinga",
+        "homepage": "https://bkcmedia.nl",
+        "email": "j.sevinga@bkcmedia.nl",
+        "role": "Developer"
+     }
+  ],
+  "require": {
+    "php": "^8.0",
+    "area17/twill": "^2.6|^3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "BKCmedia\\TwillCookieConsent\\": "src"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "BKCmedia\\TwillCookieConsent\\TwillCookieConsentServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
