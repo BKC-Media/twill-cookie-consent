@@ -3,9 +3,11 @@
 namespace BKCmedia\TwillCookieConsent\Twill\Capsules\Cookies\Http\Controllers;
 
 use A17\Twill\Models\Contracts\TwillModelContract;
+use A17\Twill\Services\Forms\Fields\BlockEditor;
 use A17\Twill\Services\Listings\Columns\Text;
 use A17\Twill\Services\Listings\TableColumns;
 use A17\Twill\Services\Forms\Fields\Input;
+use A17\Twill\Services\Forms\Fields\Wysiwyg;
 use A17\Twill\Services\Forms\Form;
 use A17\Twill\Http\Controllers\Admin\SingletonModuleController as BaseModuleController;
 
@@ -28,8 +30,23 @@ class CookieController extends BaseModuleController
     {
         $form = parent::getForm($model);
 
+        $wysiwygOptions = [
+            ['header' => [4, 5, 6, false]],
+            'bold',
+            'italic',
+            ['list' => 'bullet'],
+            ['list' => 'ordered'],
+            [ 'script' => 'super' ],
+            [ 'script' => 'sub' ],
+            'link',
+            'clean',
+        ];
+
         $form->add(
-            Input::make()->name('description')->label('Description')
+            Input::make()->name('cookie_banner_description')->type('textarea')->label('Cooke banner description'),
+            Input::make()->name('settings_title')->type('text')->label('Settings popup title'),
+            Wysiwyg::make()->name('settings_description')->toolbarOptions($wysiwygOptions)->allowSource(true)->label('Settings popup description'),
+            BlockEditor::make()->blocks(),
         );
 
         return $form;
