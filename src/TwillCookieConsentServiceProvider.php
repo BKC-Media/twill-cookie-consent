@@ -32,6 +32,6 @@ class TwillCookieConsentServiceProvider extends TwillPackageServiceProvider
         // Routes
         $this->loadRoutesFrom(__DIR__.'/../routes/cookie-consent.php');
 
-        $this->loadViewsFrom(__DIR__ . '/../resources/views/twill/blocks', 'bkc-media/twill-cookie-consent');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views/twill/blocks', 'TwillCookieConsent');
     }
 }
