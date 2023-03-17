@@ -43,7 +43,7 @@ class TwillCookieConsentServiceProvider extends TwillPackageServiceProvider
 
         Config::set('view.paths', array_merge(
             Config::get('view.paths'),
-            [__DIR__.'/../resources/views/repeater']
+            [__DIR__.'/../resources/views/twill/repeater']
         ));
 
         View::addNamespace('twill-cookie-consent', __DIR__.'/../resources/views/twill');
