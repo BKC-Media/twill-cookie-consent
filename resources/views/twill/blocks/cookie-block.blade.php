@@ -16,8 +16,6 @@
       ['list' => 'bullet'],
       ['indent' => '-1'],
       ['indent' => '+1'],
-      ["align" => []],
-      ["direction" => "rtl"],
       'link',
       "clean",
     ];
