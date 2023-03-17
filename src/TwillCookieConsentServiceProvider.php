@@ -33,9 +33,6 @@ class TwillCookieConsentServiceProvider extends TwillPackageServiceProvider
         // Register the blocks directory
         TwillBlocks::registerPackageBlocksDirectory(__DIR__.'/../resources/views/twill/blocks');
 
-        // Register block group
-        TwillBlocks::registerBlockGroup('cookie-consent', 'Cookie Consent');
-
         // Routes
         $this->loadRoutesFrom(__DIR__.'/../routes/cookie-consent.php');
 

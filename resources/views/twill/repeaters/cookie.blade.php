@@ -1,7 +1,6 @@
 @twillRepeaterTitle('cookie')
 @twillRepeaterTitleField('cookie_name', ['hidePrefix' => true])
 @twillRepeaterTrigger('Add cookie')
-@twillRepeaterGroup('cookie-consent')
 
 <x-twill::input
         name="cookie_name"
