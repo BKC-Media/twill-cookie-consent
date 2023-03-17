@@ -46,7 +46,7 @@ class CookieController extends BaseModuleController
             Input::make()->name('cookie_banner_description')->type('textarea')->label('Cooke banner description'),
             Input::make()->name('settings_title')->type('text')->label('Settings popup title'),
             Wysiwyg::make()->name('settings_description')->toolbarOptions($wysiwygOptions)->allowSource(true)->label('Settings popup description'),
-            BlockEditor::make()->blocks(['twill-cookie-consent::cookie-block']),
+            BlockEditor::make()->blocks(['twill-cookie-consent::blocks.cookie-block']),
         );
 
         return $form;

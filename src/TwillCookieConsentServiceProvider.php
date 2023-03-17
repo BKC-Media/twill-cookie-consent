@@ -38,9 +38,14 @@ class TwillCookieConsentServiceProvider extends TwillPackageServiceProvider
         // Register the views for the Cookie Capsule with Twill's view finder
         Config::set('view.paths', array_merge(
             Config::get('view.paths'),
-            [__DIR__.'/../resources/views']
+            [__DIR__.'/../resources/views/twill/blocks']
         ));
 
-        View::addNamespace('twill-cookie-consent', __DIR__.'/../resources/views/twill/blocks');
+        Config::set('view.paths', array_merge(
+            Config::get('view.paths'),
+            [__DIR__.'/../resources/views/repeater']
+        ));
+
+        View::addNamespace('twill-cookie-consent', __DIR__.'/../resources/views/twill');
     }
 }
