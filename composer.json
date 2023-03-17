@@ -13,7 +13,7 @@
   ],
   "require": {
     "php": "^8.0",
-    "area17/twill": "^2.6|^3.0",
+    "area17/twill": "^3.0",
     "laravel/framework": "^8|^9"
   },
   "autoload": {

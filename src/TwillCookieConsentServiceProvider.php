@@ -3,17 +3,31 @@
 namespace BKCmedia\TwillCookieConsent;
 
 use A17\Twill\TwillPackageServiceProvider;
+use A17\Twill\Facades\TwillBlocks;
 
 class TwillCookieConsentServiceProvider extends TwillPackageServiceProvider
 {
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register(): void
+    {
+        // Config
+        $this->mergeConfigFrom(
+            __DIR__.'/../config/twill-cookie-consent.php', 'twill-cookie-consent'
+        );
+    }
+
     /**
      * Bootstrap any application services.
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         // Routes
-        $this->loadRoutesFrom(__DIR__.'/routes/cookie-consent.php');
+        $this->loadRoutesFrom(__DIR__.'/../routes/cookie-consent.php');
     }
 }
