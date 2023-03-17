@@ -1,6 +1,6 @@
 @twillBlockTitle('Cookie category')
 @twillBlockGroup('cookie-consent')
-@twillBlockComponent('twill-cookie-consent-blocks::cookie-block')
+@twillBlockComponent('cookie-consent::cookie-block')
 
 @php
     $wysiwygOptions = [
