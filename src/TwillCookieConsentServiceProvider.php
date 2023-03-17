@@ -2,10 +2,8 @@
 
 namespace BKCmedia\TwillCookieConsent;
 
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\View;
 use A17\Twill\TwillPackageServiceProvider;
-
 use A17\Twill\Facades\TwillBlocks;
 
 class TwillCookieConsentServiceProvider extends TwillPackageServiceProvider
@@ -40,7 +38,6 @@ class TwillCookieConsentServiceProvider extends TwillPackageServiceProvider
 
         View::addNamespace('twill-cookie-consent', __DIR__.'/../resources/views/twill');
 
-        $this->loadViewsFrom(__DIR__.'/../resources/views/twill/blocks', 'twill-cookie-consent');
-
+        TwillBlocks::registerComponentBlocks('BKCmedia\\TwillCookieConsent\\Twill\\Capsules\\Cookies\\Components\\Twill\\Blocks', __DIR__ . '/../resources/views/twill/blocks');
     }
 }
