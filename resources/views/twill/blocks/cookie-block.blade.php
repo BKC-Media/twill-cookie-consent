@@ -1,5 +1,4 @@
 @twillBlockTitle('Cookie category')
-@twillBlockIcon('cookie')
 
 @php
     $wysiwygOptions = [
