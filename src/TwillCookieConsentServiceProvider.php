@@ -30,15 +30,15 @@ class TwillCookieConsentServiceProvider extends TwillPackageServiceProvider
     {
         parent::boot();
 
-        // Register the blocks directory
+        // Register the blocks and repeaters directory
         parent::registerBlocksDirectory(__DIR__.'/../resources/views/twill/blocks');
+        parent::registerRepeatersDirectory(__DIR__.'/../resources/views/twill/repeaters');
 
         // Routes
         $this->loadRoutesFrom(__DIR__.'/../routes/cookie-consent.php');
 
         // Load the package config file
         $this->mergeConfigFrom(__DIR__.'/../config/twill-cookie-consent.php', 'twill-cookie-consent');
-
 
     }
 }
