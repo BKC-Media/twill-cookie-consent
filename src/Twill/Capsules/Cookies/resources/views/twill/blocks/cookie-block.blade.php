@@ -34,6 +34,6 @@
     :edit-source="true"
 />
 
-<x-twill::repeater
-    type="cookie"
-/>
+{{--<x-twill::repeater--}}
+{{--    type="cookie"--}}
+{{--/>--}}
