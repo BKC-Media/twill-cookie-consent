@@ -12,10 +12,4 @@ return [
      */
     'cookie_lifetime' => 365 * 20,
 
-    /*
-     * Define view paths
-     */
-    'view_paths' => [
-        __DIR__.'/../resources/views',
-    ],
 ];
