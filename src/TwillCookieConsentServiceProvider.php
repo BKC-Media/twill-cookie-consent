@@ -20,14 +20,16 @@ class TwillCookieConsentServiceProvider extends TwillPackageServiceProvider
         );
     }
 
-//    /**
-//     * Bootstrap any application services.
-//     *
-//     * @return void
-//     */
-//    public function boot(): void
-//    {
-//        // Routes
-//        $this->loadRoutesFrom(__DIR__.'/../routes/cookie-consent.php');
-//    }
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot(): void
+    {
+        parent::boot();
+
+        // Routes
+        $this->loadRoutesFrom(__DIR__.'/../routes/cookie-consent.php');
+    }
 }
