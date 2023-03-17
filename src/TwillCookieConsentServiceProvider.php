@@ -41,6 +41,6 @@ class TwillCookieConsentServiceProvider extends TwillPackageServiceProvider
             [__DIR__.'/../resources/views']
         ));
 
-        View::addNamespace('twill-cookie-consent', __DIR__.'/../resources/views/twill');
+        View::addNamespace('twill-cookie-consent', __DIR__.'/../resources/views/twill/blocks');
     }
 }
