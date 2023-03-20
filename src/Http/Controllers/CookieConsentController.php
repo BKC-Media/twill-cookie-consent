@@ -2,6 +2,7 @@
 
 namespace BKCmedia\TwillCookieConsent\Http\Controllers;
 
+use BKCmedia\TwillCookieConsent\Twill\Capsules\Cookies\Models\Cookie;
 use Illuminate\Routing\Controller;
 
 class CookieConsentController extends Controller
