@@ -47,7 +47,7 @@ class TwillCookieConsentServiceProvider extends TwillPackageServiceProvider
 
         // Share cookie singleton model data using view composer
         View::composer('twill-cookie-consent::components.cookie-consent', function ($view) {
-            $cookiesData = Cookie::all();
+            $cookiesData = Cookie::first();
             $view->with(compact('cookiesData'));
         });
     }
