@@ -26,6 +26,23 @@
         label="Cookie name"
 />
 
+<x-twill::radios
+        name="cookie_type"
+        label="Cookie type (required/optional)"
+        default="required"
+        :inline="true"
+        :options="[
+        [
+            'value' => 'required',
+            'label' => 'Required'
+        ],
+        [
+            'value' => 'optional',
+            'label' => 'Optional'
+        ]
+    ]"
+/>
+
 <x-twill::wysiwyg
     name="cookie_category_text"
     label="Cookie category text"
