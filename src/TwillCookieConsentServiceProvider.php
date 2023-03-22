@@ -4,6 +4,7 @@ namespace BKCmedia\TwillCookieConsent;
 
 use BKCmedia\TwillCookieConsent\Http\Controllers\CookieConsentController;
 use BKCmedia\TwillCookieConsent\Twill\Capsules\Cookies\Models\Cookie;
+use BKCmedia\TwillCookieConsent\Composers\ConsentComposer;
 use Illuminate\Support\Facades\View;
 use A17\Twill\TwillPackageServiceProvider;
 use A17\Twill\Facades\TwillBlocks;
@@ -45,10 +46,7 @@ class TwillCookieConsentServiceProvider extends TwillPackageServiceProvider
         // Load package views
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'twill-cookie-consent');
 
-        // Share cookie singleton model data using view composer
-        View::composer('twill-cookie-consent::components.cookie-consent', function ($view) {
-            $cookiesData = Cookie::all();
-            $view->with(compact('cookiesData'));
-        });
+        // Share cookie model data with view using class method
+        View::composer('twill-cookie-consent::components.cookie-consent', ConsentComposer::class);
     }
 }
