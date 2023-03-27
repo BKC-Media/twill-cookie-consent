@@ -5,6 +5,7 @@ namespace BKCmedia\TwillCookieConsent\Composers;
 use A17\Twill\Models\Block;
 use BKCmedia\TwillCookieConsent\Twill\Capsules\Cookies\Models\Cookie;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\URL;
 
 class ConsentComposer
 {

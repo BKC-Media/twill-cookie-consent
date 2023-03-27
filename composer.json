@@ -1,6 +1,6 @@
 {
   "name": "bkc-media/twill-cookie-consent",
-  "description": "A twill package",
+  "description": "A cookie twill package",
   "homepage": "https://github.com/bkc-media/twill-cookie-consent",
   "license": "MIT",
   "authors": [
@@ -25,9 +25,24 @@
     "laravel": {
       "providers": [
         "BKCmedia\\TwillCookieConsent\\TwillCookieConsentServiceProvider"
+      ],
+      "public": "vendor/twill-cookie-consent",
+      "assets": [
+        {
+          "source": "build",
+          "destination": "public/vendor/twill-cookie-consent"
+        }
       ]
     }
   },
   "minimum-stability": "dev",
-  "prefer-stable": true
+  "prefer-stable": true,
+  "scripts": {
+    "post-install-cmd": [
+      "php artisan vendor:publish --tag=twill-cookie-consent --force"
+    ],
+    "post-update-cmd": [
+      "php artisan vendor:publish --tag=twill-cookie-consent --force"
+    ]
+  }
 }
