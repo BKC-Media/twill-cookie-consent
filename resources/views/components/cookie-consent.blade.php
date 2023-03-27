@@ -1,73 +1,73 @@
 <link rel="stylesheet" href="{{ asset('vendor/twill-cookie-consent/package.css') }}">
 
-<div class="cookie-consent bg-black/30 fixed inset-0 w-screen h-screen z-30">
+<div class="tcc__cookie-consent tcc__bg-black/30 tcc__fixed tcc__inset-0 tcc__w-screen tcc__h-screen tcc__z-30">
     <!--- Cookie consent banner -->
-    <div class="fixed bottom-9 inset-x-6 mx-auto z-40 bg-white max-w-7xl w-full shadow-2xl p-6 rounded flex items-center justify-between flex-wrap z-40">
-        <div class="cookie-consent__content w-full lg:w-4/6 mb-5 lg:mb-0">
+    <div class="tcc__fixed tcc__bottom-9 tcc__inset-x-6 tcc__mx-auto tcc__z-40 tcc__bg-white tcc__max-w-7xl tcc__w-full tcc__shadow-2xl tcc__p-6 tcc__rounded tcc__flex tcc__flex-col tcc__flex-wrap tcc__z-40">
+        <div class="tcc__cookie-consent__content tcc__w-full tcc__lg:w-4/6 tcc__mb-5 tcc__lg:mb-0">
             {!! $cookiesData->cookie_banner_description !!}
         </div>
-        <div class="cookie-consent__actions w-full lg:w-2/6 flex justify-start lg:justify-end items-center gap-3">
-            <span class="cookie-consent__trigger underline cursor-pointer" id="openSettings">Cookie instellingen</span>
-            <button class="cookie-consent__button bg-lime-600 font-bold text-white px-4 py-3 rounded-lg cursor-pointer" id="acceptAllCookies">Alle cookies accepteren</button>
+        <div class="tcc__-cookie-consent__actions tcc__w-full tcc__lg:w-2/6 tcc__flex tcc__items-center tcc__justify-end tcc__gap-3">
+            <span class="tcc__cookie-consent__trigger tcc__underline tcc__cursor-pointer" id="tcc__openSettings">Cookie instellingen</span>
+            <button class="tcc__cookie-consent__button tcc__bg-lime-600 tcc__font-bold tcc__text-white tcc__px-4 tcc__py-3 tcc__rounded-lg tcc__cursor-pointer" id="tcc__acceptAllCookies">Alle cookies accepteren</button>
         </div>
     </div>
 
     <!--- Cookie settings modal -->
-    <div class="cookie-consent__modal-bg bg-black/30 fixed inset-0 w-screen hidden h-screen z-50 flex items-center justify-center" id="cookieSettings">
-        <form action="{{ route('cookies.handle') }}" method="POST" class="cookie-consent__settings bg-white w-full max-w-4xl p-8 rounded shadow-2xl z-50 flex flex-col" style="height: 530px;">
+    <div class="tcc__cookie-consent__modal-bg tcc__bg-black/30 tcc__hidden tcc__fixed tcc__inset-0 tcc__w-screen tcc__h-screen tcc__z-50 tcc__flex tcc__items-center tcc__justify-center" id="tcc__cookieSettings">
+        <form action="{{ route('cookies.handle') }}" method="POST" class="tcc__cookie-consent__settings tcc__bg-white tcc__w-full tcc__max-w-4xl tcc__p-8 tcc__rounded tcc__shadow-2xl tcc__z-50 tcc__flex tcc__flex-col" style="height: 530px;">
             @csrf
-            <div class="settings__header w-full flex items-center justify-end pb-4">
-                <span class="cursor-pointer" id="closeSettings">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <div class="tcc__settings__header tcc__w-full tcc__flex tcc__items-center tcc__justify-end tcc__pb-4">
+                <span class="tcc__cursor-pointer" id="tcc__closeSettings">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="tcc__w-6 tcc__h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </span>
             </div>
-            <div class="settings__body flex items-start justify-between gap-6 grow overflow-hidden">
-                <div class="settings__nav flex flex-col w-2/6">
-                    <div class="nav__item cursor-pointer mb-4 flex flex-row justify-between items-center" id="base">
-                        <span class="text-sm">{{ $cookiesData->settings_title }}</span>
+            <div class="tcc__settings__body tcc__flex tcc__items-start tcc__justify-between tcc__gap-6 tcc__grow tcc__overflow-hidden">
+                <div class="tcc__settings__nav tcc__flex tcc__flex-col tcc__w-2/6">
+                    <div class="tcc__nav__item tcc__cursor-pointer tcc__mb-4 tcc__flex tcc__flex-row tcc__justify-between tcc__items-center" id="base">
+                        <span class="tcc__text-sm">{{ $cookiesData->settings_title }}</span>
                     </div>
                     @foreach($cookiesBlocks as $block)
-                        <div class="nav__item cursor-pointer mb-4 flex flex-row justify-between items-center @if($block->input('cookie_type') == 'required') active-preference @endif" id="{{ $block->getKey() }}">
-                            <span class="text-sm">{{ $block->input('cookie_category_name') }}</span>
+                        <div class="tcc__nav__item tcc__cursor-pointer tcc__mb-4 tcc__flex tcc__flex-row tcc__justify-between tcc__items-center @if($block->input('cookie_type') == 'required') tcc__active-preference @endif" id="{{ $block->getKey() }}">
+                            <span class="tcc__text-sm">{{ $block->input('cookie_category_name') }}</span>
                             @if($block->input('cookie_type') == 'required')
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#65a30d" class="w-6 h-6 active">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#65a30d" class="tcc__w-6 tcc__h-6 tcc__active">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                                 </svg>
                             @else
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#DC2626" class="w-6 h-6 deactivated">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#DC2626" class="tcc__w-6 tcc__h-6 tcc__deactivated">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
 
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#65a30d" class="w-6 h-6 active">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#65a30d" class="tcc__w-6 tcc__h-6 tcc__active">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                                 </svg>
                             @endif
                         </div>
                     @endforeach
                 </div>
-                <div class="settings__content w-4/6 text-sm overflow-auto h-full">
-                        <div class="settings__content-cat" id="base_content">
-                            <span class="text-2xl font-bold block mb-3">{{ $cookiesData->settings_title }}</span>
+                <div class="tcc__settings__content tcc__w-4/6 tcc__text-sm tcc__overflow-auto tcc__h-full">
+                        <div class="tcc__settings__content-cat" id="base_content">
+                            <span class="tcc__text-2xl tcc__font-bold tcc__block tcc__mb-3">{{ $cookiesData->settings_title }}</span>
                             {!! $cookiesData->settings_description !!}
                         </div>
                     @foreach($cookiesBlocks as $block)
-                        <div class="settings__content-cat hidden" id="{{ $block->getKey() }}_content">
-                            <span class="text-2xl font-bold block mb-3">{{ $block->input('cookie_category_name') }}</span>
+                        <div class="tcc__settings__content-cat tcc__hidden" id="{{ $block->getKey() }}_content">
+                            <span class="tcc__text-2xl tcc__font-bold tcc__block tcc__mb-3">{{ $block->input('cookie_category_name') }}</span>
 
                             @if($block->input('cookie_type') == 'required')
-                                <div class="flex items-center gap-2 mb-3">
-                                    <label class="flex items-center cookie--checkbox-toggle relative">
-                                        <input type="checkbox" aria-label="Cookie selection" checked disabled name="faker" value="" class="hidden toggle-checkbox-input" />
-                                        <span class="toggle"></span>
+                                <div class="tcc__flex tcc__items-center tcc__gap-2 tcc__mb-3">
+                                    <label class="tcc__flex tcc__items-center tcc__cookie--checkbox-toggle tcc__relative">
+                                        <input type="checkbox" aria-label="Cookie selection" checked disabled name="faker" value="" class="tcc__hidden tcc__toggle-checkbox-input" />
+                                        <span class="tcc__toggle"></span>
                                     </label>
                                     <span>Altijd actief</span>
                                 </div>
                             @else
-                                <label class="flex items-center cookie--checkbox-toggle relative mb-3">
-                                    <input type="checkbox" name="cookie_preferences[]" aria-label="Cookie selection" value="{{ $block->getKey() }}" class="hidden toggle-checkbox-input" />
-                                    <span class="toggle"></span>
+                                <label class="tcc__flex tcc__items-center tcc__cookie--checkbox-toggle tcc__relative tcc__mb-3">
+                                    <input type="checkbox" name="cookie_preferences[]" aria-label="Cookie selection" value="{{ $block->getKey() }}" class="tcc__hidden tcc__toggle-checkbox-input" />
+                                    <span class="tcc__toggle"></span>
                                 </label>
                             @endif
 
@@ -77,9 +77,9 @@
 
                 </div>
             </div>
-            <div class="settings__footer flex items-center justify-between pt-6">
-                <button class="cookie-consent__button bg-gray-900 font-bold text-white px-4 py-3 rounded-lg cursor-pointer" type="submit" name="submit-action" value="acceptSelectedCookies">Bevestig mijn keuze</button>
-                <button class="cookie-consent__button bg-lime-600 font-bold text-white px-4 py-3 rounded-lg cursor-pointer" type="submit" name="submit-action" value="acceptAllCookies">Alle cookies accepteren</button>
+            <div class="tcc__settings__footer tcc__flex tcc__items-center tcc__justify-between tcc__pt-6">
+                <button class="tcc__cookie-consent__button tcc__bg-gray-900 tcc__font-bold tcc__text-white tcc__px-4 tcc__py-3 tcc__rounded-lg tcc__cursor-pointer" type="submit" name="submit-action" value="acceptSelectedCookies">Bevestig mijn keuze</button>
+                <button class="tcc__cookie-consent__button tcc__bg-lime-600 tcc__font-bold tcc__text-white tcc__px-4 tcc__py-3 tcc__rounded-lg tcc__cursor-pointer" type="submit" name="submit-action" value="acceptAllCookies">Alle cookies accepteren</button>
             </div>
         </form>
     </div>

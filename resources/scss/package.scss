@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 // Checkbox toggle.
-.cookie--checkbox-toggle {
+.tcc__cookie--checkbox-toggle {
     width: 54px;
     height: 28px;
 
-    .toggle {
+    .tcc__toggle {
       position: absolute;
       cursor: pointer;
       border-radius: 34px;
@@ -31,40 +31,40 @@
       }
     }
 
-    input:checked+.toggle {
+    input:checked+.tcc__toggle {
       background-color: #65A30D;
     }
 
-    input:checked+.toggle::before {
+    input:checked+.tcc__toggle::before {
       transform: translateX(26px);
     }
 
-    input:disabled+.toggle::before {
+    input:disabled+.tcc__toggle::before {
       transform: translateX(26px);
     }
 
-    input:disabled+.toggle {
+    input:disabled+.tcc__toggle {
       background-color: #65A30D;
       opacity: .5;
     }
 }
 
-.nav__item {
-    .active {
+.tcc__nav__item {
+    .tcc__active {
         display: none;
     }
 
-    .deactivated {
+    .tcc__deactivated {
         display: block;
     }
 }
 
-.nav__item.active-preference {
-    .active {
+.tcc__nav__item.tcc__active-preference {
+    .tcc__active {
       display: block;
     }
 
-    .deactivated {
+    .tcc__deactivated {
       display: none;
     }
 }
