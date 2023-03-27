@@ -48,5 +48,9 @@ class TwillCookieConsentServiceProvider extends TwillPackageServiceProvider
 
         // Share cookie model data with view using class method
         View::composer('twill-cookie-consent::components.cookie-consent', ConsentComposer::class);
+
+        $this->publishes([
+            __DIR__.'/../build' => public_path('vendor/twill-cookie-consent'),
+        ], 'twill-cookie-consent');
     }
 }
