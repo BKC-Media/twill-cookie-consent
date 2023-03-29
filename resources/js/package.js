@@ -40,4 +40,31 @@ window.addEventListener('load', function () {
         })
     });
 
+    // Get all the cookie__title elements
+    const titles = document.querySelectorAll('.tcc__cookie-title');
+
+    // Add a click event listener to each title
+    titles.forEach(title => {
+        title.addEventListener('click', () => {
+            // Get the corresponding content element
+            const content = title.nextElementSibling;
+            title.classList.toggle('active');
+
+            // Close all other content elements and toggle their icons
+            const otherTitles = document.querySelectorAll('.tcc__cookie-title:not(.active)');
+
+            otherTitles.forEach(otherTitle => {
+                const otherContent = otherTitle.nextElementSibling;
+                otherContent.classList.add('tcc__hidden');
+                otherTitle.querySelector('.tcc__icon-plus').classList.remove('tcc__hidden');
+                otherTitle.querySelector('.tcc__icon-min').classList.add('tcc__hidden');
+            });
+
+            // Toggle the visibility of the content element and its icons
+            content.classList.toggle('tcc__hidden');
+            title.querySelector('.tcc__icon-plus').classList.add('tcc__hidden');
+            title.querySelector('.tcc__icon-min').classList.remove('tcc__hidden');
+        });
+    });
+
 });

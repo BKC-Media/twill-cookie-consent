@@ -30,3 +30,17 @@
     note="Scripts will be placed in the <head> of the document."
     type="textarea"
 />
+
+<x-twill::input
+    name="body_script"
+    label="Add provider script here (e.g. Google Analytics)"
+    note="Scripts will be placed at the start of the <body> tag"
+    type="textarea"
+/>
+
+<x-twill::input
+    name="footer_script"
+    label="Add provider script here (e.g. Google Analytics)"
+    note="Scripts will be placed in the <footer>"
+    type="textarea"
+/>
