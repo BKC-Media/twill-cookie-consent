@@ -42,6 +42,13 @@ class TwillCookieConsentServiceProvider extends TwillPackageServiceProvider
         // Load the package config file.
         $this->mergeConfigFrom(__DIR__.'/../config/twill-cookie-consent.php', 'twill-cookie-consent');
 
+        // Translations
+        $this->loadTranslationsFrom(__DIR__.'/../lang', 'twill-cookie-consent');
+
+        $this->publishes([
+            __DIR__.'/../lang' => resource_path('lang/vendor/twill-cookie-consent'),
+        ], 'twill-cookie-consent-translations');
+
         // Register blade directives.
         CookieHelper::registerDirectives();
 

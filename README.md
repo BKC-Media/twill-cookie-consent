@@ -16,7 +16,7 @@ You can install the package via composer:
 composer require bkc-media/twill-cookie-consent 
 ```
 
-Publish the assets:
+Publish the assets to include necessary javascript and css files:
 
 ```bash \
 php artisan vendor:publish --provider="BKCmedia\TwillCookieConsent\TwillCookieConsentServiceProvider" --tag="twill-cookie-consent-assets" --force 
@@ -28,10 +28,56 @@ Optionally publish the config file:
 php artisan vendor:publish --provider="BKCmedia\TwillCookieConsent\TwillCookieConsentServiceProvider" --tag="twill-cookie-consent-config"
 ```
 
-Run migration to add the cookie table:
+Optionally publish the lang files:
+
+```bash \ 
+php artisan vendor:publish --provider="BKCmedia\TwillCookieConsent\TwillCookieConsentServiceProvider" --tag="twill-cookie-consent-translations"
+```
+
+The contents of the published config file will look like this:
+
+```php
+return [
+    /*
+     * The cookie name in which we store which cookie id's the user has consented to.
+     */
+    'cookie_name' => 'tcc_cookie_consent',
+
+    /*
+     * Set the cookie duration in minutes.  Default is 60 * 24 * 365.
+     */
+    'cookie_lifetime' => 60 * 24 * 365,
+
+    /*
+     * Set primary color for cookie consent accept all buttons, default is green.
+     */
+    'primary_color' => '#65A30D',
+];
+```
+
+Run migration to add the twill cookie singleton:
 
 ```bash 
 php artisan migrate 
 ```
 
 ## Usage
+After migration you can add the cookie consent content by going to the cookie module in the CMS. Add the cookie consent banner description and intro settings content. Use the block editor to add cookie categories and the repeater inside the block to add cookie information and necessary scripts per location: head, body or footer.
+
+Add the cookie consent banner to your app.blade.php file or any other layout file:
+
+```php
+@include('twill-cookie-consent::components.cookie-consent')
+```
+
+Based on provider scripts add one or all of the following in the right location in your app.blade.php file or any other layout file:
+
+```php 
+@include('twill-cookie-consent::components.cookie-scripts-head')
+
+@include('twill-cookie-consent::components.cookie-scripts-body')
+
+@include('twill-cookie-consent::components.cookie-scripts-footer')
+```
+
+Based on the user preferences the scripts will be added to the page in the right location.

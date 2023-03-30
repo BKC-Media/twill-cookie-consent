@@ -57,6 +57,12 @@
     .tcc__deactivated {
         display: block;
     }
+
+  &.tcc__active {
+    span {
+      font-weight: 700;
+    }
+  }
 }
 
 .tcc__nav__item.tcc__active-preference {
