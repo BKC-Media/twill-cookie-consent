@@ -18,6 +18,13 @@ window.addEventListener('load', function () {
             const id = item.getAttribute('id');
             const content = document.getElementById(id + '_content');
             const activeContent = document.querySelector('.tcc__settings__content-cat:not(.tcc__hidden)');
+            const activeNavItem = document.querySelector('.tcc__nav__item.tcc__active');
+
+            if (activeNavItem) {
+                activeNavItem.classList.remove('tcc__active');
+            }
+
+            item.classList.add('tcc__active');
 
             activeContent.classList.add('tcc__hidden');
             content.classList.remove('tcc__hidden');
