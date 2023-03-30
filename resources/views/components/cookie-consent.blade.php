@@ -10,6 +10,7 @@
             <div class="tcc__-cookie-consent__actions tcc__w-full tcc__lg:w-2/6 tcc__flex tcc__items-center tcc__justify-end tcc__gap-3">
                 <span class="tcc__cookie-consent__trigger tcc__underline tcc__cursor-pointer" id="tcc__openSettings">Cookie instellingen</span>
                 <form action="{{ route('cookies.handle') }}" method="POST">
+                    @csrf
                     <button type="submit" name="submit-action" value="acceptAllCookies" class="tcc__cookie-consent__button tcc__font-bold tcc__text-white tcc__px-4 tcc__py-3 tcc__rounded-lg tcc__cursor-pointer" style="background-color: {{ config('twill-cookie-consent.primary_color') }}">Alle cookies accepteren</button>
                 </form>
             </div>
