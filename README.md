@@ -1,6 +1,6 @@
 # Cookie consent for Twill ( not done yet )
 
-This package provides a simple way to add cookie consent to your Twill 3x project by adding cookie scripts using the CMS.
+This package provides a simple way to add cookie consent to your Twill 3x project by adding cookie scripts based on user preferences using the CMS.
 
 ## Requirements
 
