@@ -5,21 +5,19 @@ namespace BKCmedia\TwillCookieConsent\Composers;
 use A17\Twill\Models\Block;
 use BKCmedia\TwillCookieConsent\Twill\Capsules\Cookies\Models\Cookie;
 use Illuminate\View\View;
-use Illuminate\Support\Facades\URL;
 
 class ConsentComposer
 {
     /**
      * The cookie model implementation.
-     *  @var \BKCmedia\TwillCookieConsent\Twill\Capsules\Cookies\Models\Cookie
+     *  @var Cookie
      */
     protected $cookie;
-    protected $cookieBlocks;
 
     /**
      * Create a new cookie consent composer.
      *
-     * @param  \BKCmedia\TwillCookieConsent\Twill\Capsules\Cookies\Models\Cookie $cookie
+     * @param  Cookie $cookie
      * @return void
      */
     public function __construct(Cookie $cookie)
@@ -30,7 +28,7 @@ class ConsentComposer
     /**
      * Bind data to the view.
      *
-     * @param  \Illuminate\View\View  $view
+     * @param  View  $view
      * @return void
      */
     public function compose(View $view)
