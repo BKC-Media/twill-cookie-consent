@@ -1,4 +1,5 @@
-# Cookie consent for Twill ( beta )
+# Cookie consent for Twill
+[![Latest Stable Version](http://poser.pugx.org/bkc-media/twill-cookie-consent/v)](https://packagist.org/packages/bkc-media/twill-cookie-consent) [![Total Downloads](http://poser.pugx.org/bkc-media/twill-cookie-consent/downloads)](https://packagist.org/packages/bkc-media/twill-cookie-consent) [![Latest Unstable Version](http://poser.pugx.org/bkc-media/twill-cookie-consent/v/unstable)](https://packagist.org/packages/bkc-media/twill-cookie-consent) [![License](http://poser.pugx.org/bkc-media/twill-cookie-consent/license)](https://packagist.org/packages/bkc-media/twill-cookie-consent)
 
 This package provides a simple way to add cookie consent to your Twill 3x project by adding cookie scripts based on user preferences using the CMS.
 
