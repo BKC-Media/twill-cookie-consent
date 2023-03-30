@@ -603,10 +603,6 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
-.tcc__bg-lime-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(101 163 13 / var(--tw-bg-opacity));
-}
 .tcc__bg-slate-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(241 245 249 / var(--tw-bg-opacity));
@@ -632,8 +628,8 @@ video {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
 }
-.tcc__pb-4 {
-  padding-bottom: 1rem;
+.tcc__pb-2 {
+  padding-bottom: 0.5rem;
 }
 .tcc__pt-3 {
   padding-top: 0.75rem;

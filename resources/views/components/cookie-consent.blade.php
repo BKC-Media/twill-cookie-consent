@@ -9,7 +9,9 @@
             </div>
             <div class="tcc__-cookie-consent__actions tcc__w-full tcc__lg:w-2/6 tcc__flex tcc__items-center tcc__justify-end tcc__gap-3">
                 <span class="tcc__cookie-consent__trigger tcc__underline tcc__cursor-pointer" id="tcc__openSettings">Cookie instellingen</span>
-                <button class="tcc__cookie-consent__button tcc__bg-lime-600 tcc__font-bold tcc__text-white tcc__px-4 tcc__py-3 tcc__rounded-lg tcc__cursor-pointer" id="tcc__acceptAllCookies">Alle cookies accepteren</button>
+                <form action="{{ route('cookies.handle') }}" method="POST">
+                    <button type="submit" name="submit-action" value="acceptAllCookies" class="tcc__cookie-consent__button tcc__font-bold tcc__text-white tcc__px-4 tcc__py-3 tcc__rounded-lg tcc__cursor-pointer" style="background-color: {{ config('twill-cookie-consent.primary_color') }}">Alle cookies accepteren</button>
+                </form>
             </div>
         </div>
 
@@ -99,7 +101,7 @@
                 </div>
                 <div class="tcc__settings__footer tcc__flex tcc__items-center tcc__justify-between tcc__pt-6">
                     <button class="tcc__cookie-consent__button tcc__bg-gray-900 tcc__font-bold tcc__text-white tcc__px-4 tcc__py-3 tcc__rounded-lg tcc__cursor-pointer" type="submit" name="submit-action" value="acceptSelectedCookies">Bevestig mijn keuze</button>
-                    <button class="tcc__cookie-consent__button tcc__bg-lime-600 tcc__font-bold tcc__text-white tcc__px-4 tcc__py-3 tcc__rounded-lg tcc__cursor-pointer" type="submit" name="submit-action" value="acceptAllCookies">Alle cookies accepteren</button>
+                    <button class="tcc__cookie-consent__button tcc__font-bold tcc__text-white tcc__px-4 tcc__py-3 tcc__rounded-lg tcc__cursor-pointer" style="background-color: {{ config('twill-cookie-consent.primary_color') }}" type="submit" name="submit-action" value="acceptAllCookies">Alle cookies accepteren</button>
                 </div>
             </form>
         </div>
