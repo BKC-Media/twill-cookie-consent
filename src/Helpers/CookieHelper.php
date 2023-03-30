@@ -23,36 +23,4 @@ class CookieHelper
             return !Cookie::has(config('twill-cookie-consent.cookie_name'));
         });
     }
-
-    /**
-     * Get the cookie script for the given location.
-     *
-     * @param string $scriptLocation
-     * @return string
-     */
-    public static function getCookieScripts(string $scriptLocation): string
-    {
-        $consentCookie = config('twill-cookie-consent.cookie_name');
-        $hasCookie = Cookie::has($consentCookie);
-
-        // Return empty string if the cookie is not set.
-        if (!$hasCookie) {
-            return '';
-        }
-
-        $acceptedBlocks = json_decode(Cookie::get($consentCookie), true) ?: [];
-
-//        // Get the block data for the accepted blocks
-//        $blocks = Block::whereIn('id', $acceptedBlocks)->get();
-//
-//        // Render the content using the blocks
-//        $content = '';
-//        foreach ($blocks as $block) {
-//            foreach ($block->children->where('type', 'cookie') as $child) {
-//                $content .= $child->input($scriptLocation);
-//            }
-//        }
-
-        return $acceptedBlocks;
-    }
 }

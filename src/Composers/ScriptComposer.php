@@ -19,14 +19,12 @@ class ScriptComposer
         $consentCookie = config('twill-cookie-consent.cookie_name');
         $hasCookie = Cookie::has($consentCookie);
 
-        // Return empty string if the cookie is not set.
         if (!$hasCookie) {
             $scriptBlocks = null;
         } else {
             $acceptedBlocks = json_decode(Cookie::get($consentCookie), true) ?: [];
             $scriptBlocks = Block::whereIn('id', $acceptedBlocks)->get();
         }
-
 
         $view->with(compact( 'scriptBlocks'));
     }

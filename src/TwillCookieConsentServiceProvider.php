@@ -48,13 +48,20 @@ class TwillCookieConsentServiceProvider extends TwillPackageServiceProvider
         // Load package views.
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'twill-cookie-consent');
 
-        // Use the ConsentComposer to pass the cookie consent blocks to the view.
+        // Register the package view composers.
         View::composer('twill-cookie-consent::components.cookie-consent', ConsentComposer::class);
         View::composer('twill-cookie-consent::components.head-scripts', ScriptComposer::class);
+        View::composer('twill-cookie-consent::components.body-scripts', ScriptComposer::class);
+        View::composer('twill-cookie-consent::components.footer-scripts', ScriptComposer::class);
 
         // Publish the package assets css and js.
         $this->publishes([
             __DIR__.'/../build' => public_path('vendor/twill-cookie-consent'),
-        ], 'twill-cookie-consent');
+        ], 'twill-cookie-consent-assets');
+
+        // Publish the config file
+        $this->publishes([
+            __DIR__.'/../config/twill-cookie-consent.php' => config_path('twill-cookie-consent.php'),
+        ], 'twill-cookie-consent-config');
     }
 }
