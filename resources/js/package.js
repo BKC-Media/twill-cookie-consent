@@ -55,22 +55,21 @@ window.addEventListener('load', function () {
         title.addEventListener('click', () => {
             // Get the corresponding content element
             const content = title.nextElementSibling;
-            title.classList.toggle('active');
 
-            // Close all other content elements and toggle their icons
-            const otherTitles = document.querySelectorAll('.tcc__cookie-title:not(.active)');
+            // if title is already active, close it
+            if (title.classList.contains('active')) {
+                title.classList.remove('active');
+                content.classList.add('tcc__hidden');
+                title.querySelector('.tcc__icon-plus').classList.remove('tcc__hidden');
+                title.querySelector('.tcc__icon-min').classList.add('tcc__hidden');
 
-            otherTitles.forEach(otherTitle => {
-                const otherContent = otherTitle.nextElementSibling;
-                otherContent.classList.add('tcc__hidden');
-                otherTitle.querySelector('.tcc__icon-plus').classList.remove('tcc__hidden');
-                otherTitle.querySelector('.tcc__icon-min').classList.add('tcc__hidden');
-            });
-
-            // Toggle the visibility of the content element and its icons
-            content.classList.toggle('tcc__hidden');
-            title.querySelector('.tcc__icon-plus').classList.add('tcc__hidden');
-            title.querySelector('.tcc__icon-min').classList.remove('tcc__hidden');
+            } else {
+                // Toggle the visibility of the content element and its icons
+                title.classList.toggle('active');
+                content.classList.toggle('tcc__hidden');
+                title.querySelector('.tcc__icon-plus').classList.add('tcc__hidden');
+                title.querySelector('.tcc__icon-min').classList.remove('tcc__hidden');
+            }
         });
     });
 
