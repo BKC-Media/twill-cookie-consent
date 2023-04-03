@@ -85,7 +85,7 @@
 
                                         <div class="cookies__list">
                                             @foreach($block->children->where('type', 'cookie') as $cookie)
-                                                <div class="tcc__cookie tcc__bg-slate-100 tcc__rounded tcc__p-3 tcc__mt-6 tcc__mb-3">
+                                                <div class="tcc__cookie tcc__bg-slate-100 tcc__rounded tcc__p-3 first:tcc__mt-6 tcc__mb-3">
                                                     <span class="tcc__cookie-title tcc__flex tcc__justify-between tcc__item-center tcc__cursor-pointer">
                                                         <strong>{{ $cookie->input('cookie_name') }}</strong>
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="tcc__icon-plus w-6 h-6">

@@ -8,7 +8,7 @@
         "name": "Jeffrey Sevinga",
         "homepage": "https://bkcmedia.nl",
         "email": "j.sevinga@bkcmedia.nl",
-        "role": "Developer"
+        "role": "Software Developer"
      }
   ],
   "require": {
@@ -39,10 +39,10 @@
   "prefer-stable": true,
   "scripts": {
     "post-install-cmd": [
-      "php artisan vendor:publish --tag=twill-cookie-consent --force"
+      "php artisan vendor:publish --provider=\"BKCmedia\\TwillCookieConsent\\TwillCookieConsentServiceProvider\" --tag=\"twill-cookie-consent-assets\" --force"
     ],
     "post-update-cmd": [
-      "php artisan vendor:publish --tag=twill-cookie-consent --force"
+      "php artisan vendor:publish --provider=\"BKCmedia\\TwillCookieConsent\\TwillCookieConsentServiceProvider\" --tag=\"twill-cookie-consent-assets\" --force"
     ]
   }
 }
