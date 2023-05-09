@@ -74,11 +74,11 @@ Add the cookie consent banner to your app.blade.php file or any other layout fil
 Based on provider scripts add one or all of the following in the right location in your app.blade.php file or any other layout file:
 
 ```php 
-@include('twill-cookie-consent::components.cookie-scripts-head')
+@include('twill-cookie-consent::components.head-scripts')
 
-@include('twill-cookie-consent::components.cookie-scripts-body')
+@include('twill-cookie-consent::components.body-scripts')
 
-@include('twill-cookie-consent::components.cookie-scripts-footer')
+@include('twill-cookie-consent::components.footer-scripts')
 ```
 
 Based on the user preferences the scripts will be added to the page in the right location.
